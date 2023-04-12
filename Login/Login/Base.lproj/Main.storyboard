@@ -19,7 +19,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="lkh-jB-vE0">
                                 <rect key="frame" x="30" y="155.33333333333334" width="333" height="421.33333333333326"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Notes-Logo-Graphics-3958844-1-580x435" translatesAutoresizingMaskIntoConstraints="NO" id="DHb-2Z-2BQ">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Notes" translatesAutoresizingMaskIntoConstraints="NO" id="DHb-2Z-2BQ">
                                         <rect key="frame" x="0.0" y="0.0" width="333" height="220"/>
                                         <color key="tintColor" red="0.67251741890000005" green="0.18178918960000001" blue="0.35422798989999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -109,7 +109,7 @@
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="erj-hq-bYj">
                                         <rect key="frame" x="0.0" y="380" width="333" height="41.333333333333314"/>
-                                        <color key="backgroundColor" red="0.67251741890000005" green="0.18178918960000001" blue="0.35422798989999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.60371977089999995" green="0.1593402028" blue="0.1518612802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="erj-hq-bYj" secondAttribute="height" multiplier="8:1" id="TeT-Uj-mGW"/>
                                         </constraints>
@@ -233,7 +233,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Notes-Logo-Graphics-3958844-1-580x435" width="580" height="435"/>
+        <image name="Notes" width="225" height="225"/>
         <image name="envelope" catalog="system" width="128" height="93"/>
         <image name="lock" catalog="system" width="125" height="128"/>
         <systemColor name="systemBackgroundColor">

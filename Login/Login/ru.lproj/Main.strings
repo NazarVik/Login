@@ -1,0 +1,21 @@
+
+/* Class = "UITextField"; placeholder = "e-mail"; ObjectID = "QFg-C1-UoS"; */
+"QFg-C1-UoS.placeholder" = "e-mail";
+
+/* Class = "UILabel"; text = "Don't have an account?"; ObjectID = "Rzu-wP-YQZ"; */
+"Rzu-wP-YQZ.text" = "Don't have an account?";
+
+/* Class = "UIButton"; configuration.title = "Sign here"; ObjectID = "UGT-yi-lcG"; */
+"UGT-yi-lcG.configuration.title" = "Sign here";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "UGT-yi-lcG"; */
+"UGT-yi-lcG.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "LOGIN"; ObjectID = "erj-hq-bYj"; */
+"erj-hq-bYj.configuration.title" = "LOGIN";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "erj-hq-bYj"; */
+"erj-hq-bYj.normalTitle" = "Button";
+
+/* Class = "UITextField"; placeholder = "password"; ObjectID = "o7m-yE-HzZ"; */
+"o7m-yE-HzZ.placeholder" = "password";

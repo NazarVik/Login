@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
     // MARK: - outletes
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signButton: UIButton!

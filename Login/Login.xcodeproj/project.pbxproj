@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		78029EAE29E5C5EF00D854AD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 78029EB029E5C5EF00D854AD /* Localizable.strings */; };
+		78AD3C272A1FE5CE0038D219 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AD3C262A1FE5CE0038D219 /* KeychainManager.swift */; };
 		78C31C8229E1FCE6005C4607 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C31C8129E1FCE6005C4607 /* AppDelegate.swift */; };
 		78C31C8429E1FCE6005C4607 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C31C8329E1FCE6005C4607 /* SceneDelegate.swift */; };
 		78C31C8629E1FCE6005C4607 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C31C8529E1FCE6005C4607 /* LoginViewController.swift */; };
@@ -22,6 +23,7 @@
 		78029EAB29E5C5A400D854AD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		78029EAF29E5C5EF00D854AD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		78029EB129E5C5FB00D854AD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		78AD3C262A1FE5CE0038D219 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		78C31C7E29E1FCE6005C4607 /* Login.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Login.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C31C8129E1FCE6005C4607 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78C31C8329E1FCE6005C4607 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,9 +67,10 @@
 			children = (
 				78C31C8129E1FCE6005C4607 /* AppDelegate.swift */,
 				78C31C8329E1FCE6005C4607 /* SceneDelegate.swift */,
+				78AD3C262A1FE5CE0038D219 /* KeychainManager.swift */,
 				78C31C8529E1FCE6005C4607 /* LoginViewController.swift */,
-				78C31C8729E1FCE6005C4607 /* Main.storyboard */,
 				78C31C9529E2ACB9005C4607 /* SecondViewController.swift */,
+				78C31C8729E1FCE6005C4607 /* Main.storyboard */,
 				78029EB029E5C5EF00D854AD /* Localizable.strings */,
 				78C31C8A29E1FCE9005C4607 /* Assets.xcassets */,
 				78C31C8C29E1FCE9005C4607 /* LaunchScreen.storyboard */,
@@ -153,6 +156,7 @@
 				78C31C8629E1FCE6005C4607 /* LoginViewController.swift in Sources */,
 				78C31C8229E1FCE6005C4607 /* AppDelegate.swift in Sources */,
 				78C31C8429E1FCE6005C4607 /* SceneDelegate.swift in Sources */,
+				78AD3C272A1FE5CE0038D219 /* KeychainManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

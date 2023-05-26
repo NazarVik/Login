@@ -20,17 +20,18 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passImageView: UIImageView!
     
     //MARK: - Properties
+    var isLogin = true
     private let activeColor = UIColor(named: "Notes") ?? UIColor.gray
-    private var mail: String = "" {
+    private var email: String = "" {
         didSet {
-            loginButton.isUserInteractionEnabled = !(mail.isEmpty || password.isEmpty)
-            loginButton.backgroundColor = !(mail.isEmpty || password.isEmpty) ? activeColor : .systemGray5
+            loginButton.isUserInteractionEnabled = !(email.isEmpty || password.isEmpty)
+            loginButton.backgroundColor = !(email.isEmpty || password.isEmpty) ? activeColor : .systemGray5
         }
     }
     private var password: String = "" {
         didSet {
-            loginButton.isUserInteractionEnabled = !(mail.isEmpty || password.isEmpty)
-            loginButton.backgroundColor = !(mail.isEmpty || password.isEmpty) ? activeColor : .systemGray5
+            loginButton.isUserInteractionEnabled = !(email.isEmpty || password.isEmpty)
+            loginButton.backgroundColor = !(email.isEmpty || password.isEmpty) ? activeColor : .systemGray5
         }
     }
     
@@ -42,11 +43,13 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        dontHaveAccountLabel.isHidden = !isLogin
+        signButton.isHidden = !isLogin
         setupLoginButton()
         passField.delegate = self
         mailField.delegate = self
         mailField.becomeFirstResponder()
-        loginButton.isUserInteractionEnabled = false
+        loginButton.isUserInteractionEnabled = false // делает кнопку не активной
         loginButton.backgroundColor = .systemGray5
     }
 
@@ -55,7 +58,7 @@ class LoginViewController: UIViewController {
         mailField.resignFirstResponder() // делает текстовое поле не активным
         passField.resignFirstResponder()
         
-        if mail.isEmpty {
+        if email.isEmpty {
             makeErrorField(textField: mailField)
         }
         
@@ -63,19 +66,29 @@ class LoginViewController: UIViewController {
             makeErrorField(textField: passField)
         }
         
-        if mail == mockEmail, password == mockPassword {
-            performSegue(withIdentifier: "goToHomePage", sender: sender)
+        if isLogin {
+            if KeychainManager.checkUser(with: email, password: password) {
+                performSegue(withIdentifier: "goToHomePage", sender: sender)
+            } else {
+                let alert = UIAlertController(title: NSLocalizedString("Error", comment: "") , message: NSLocalizedString("Wrong password or e-mail", comment: ""), preferredStyle: .alert)
+                let action = UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default)
+                alert.addAction(action)
+                
+                present(alert, animated: true)
+            }
         } else {
-            let alert = UIAlertController(title: NSLocalizedString("Error", comment: "") , message: NSLocalizedString("Wrong password or e-mail", comment: ""), preferredStyle: .alert)
-            let action = UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default)
-            alert.addAction(action)
-            
-            present(alert, animated: true)
+            if KeychainManager.save(email: email, password: password) {
+                performSegue(withIdentifier: "goToHomePage", sender: sender)
+            } else {
+                debugPrint("Error with saving email and password")
+            }
         }
     }
     
     @IBAction func signAction(_ sender: Any) {
-        print("sign up")
+        guard let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController else { return }
+        viewController.isLogin = false
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
     private func setupLoginButton() {
@@ -83,10 +96,13 @@ class LoginViewController: UIViewController {
         loginButton.layer.shadowOffset = CGSize(width: 0, height: 3)
         loginButton.layer.shadowRadius = 5
         loginButton.layer.shadowColor = (UIColor(named: "Notes") ?? UIColor.gray).cgColor
+        
+        loginButton.isUserInteractionEnabled = false
+        loginButton.setTitle(isLogin ? "Login".localizedUppercase : "Register".localizedUppercase, for: .normal)
     }
 }
 
-extension ViewController: UITextFieldDelegate {
+extension LoginViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let text = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines), !text.isEmpty else { return }
         
@@ -95,11 +111,11 @@ extension ViewController: UITextFieldDelegate {
             let isValidEmail = check(mail: text)
             
             if isValidEmail {
-                mail = text
+                email = text
                 mailImageView.tintColor = .systemGray5
                 mailView.backgroundColor = .systemGray5
             } else {
-                mail = ""
+                email = ""
                 makeErrorField(textField: textField)
             }
         case passField:
